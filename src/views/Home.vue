@@ -43,7 +43,15 @@ export default {
   },
   created: function() {},
   methods: {
+    addPerson: function() {
+      console.log('inside AddPerson');
+      if (this.newPerson.bio && this.newPerson.name) {
+        console.log('if statement');
+        this.people.push(this.newPerson);
+        this.newPerson = {name:"John Smith", bio:"What they were known for, who have they conquered, who have they killed..."};
+      }
 
+    }
   },
   computed: {}
 };
