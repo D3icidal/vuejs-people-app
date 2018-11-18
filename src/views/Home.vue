@@ -1,18 +1,50 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{ message }}</h1>
+    <h3>{{ subheading }}</h3>
+    <br>
+    <hr>
+    <br>
+    <p><h4>Current entries:</h4></p><br>
+    <ol>
+      <li v-for="person in people"> <h5>{{person.name}}</h5>{{person.bio}}<br><br></li>
+    </ol>
+    <br>
+    <br>    
+    <p><hr5> Add to this collection!</hr5></p>
+    <p>Persons name: <input type="text" v-model="newPerson.name"> 
+    <br>Biography: <input type="text" v-model="newPerson.bio">
+    <br><button v-on:click="addPerson()">Add this person to enternal glory</button>
+    </p>
+    <p></p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p></p>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<style></style>
 
+<script>
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+  data: function() {
+    return {
+      message: "1Welcome to Vue.js!",
+      subheading: "A app about interesting people",
+      people: [
+        {name: "Name1", bio: "conquered name2", bioVisable: true},
+        {name: "Name2", bio: "conquered name3", bioVisable: true},
+        {name: "Name3", bio: "conquered name1", bioVisable: true}
+      ],
+      newPerson: {name:"John Smith", bio:"What they were known for, who have they conquered, who have they killed..."}
+    };
+  },
+  created: function() {},
+  methods: {
+
+  },
+  computed: {}
+};
 </script>
